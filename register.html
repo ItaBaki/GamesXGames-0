@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="eng" xml:lang="eng" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="register.css">
+	<title>Registration</title>
+</head>
+<body>
+	<div class="base">
+		<div class="login_container">
+			<h1>Registration</h1>
+			<form action="/action_page.php" method="post">
+				<div class="imgcontainer">
+					<img src="resources/games_104002.ico" alt="avatar" class="avatar">
+				</div>
+				<div class="loginfrm">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+
+					<label for="email"><b>E-mail Address</b></label>
+					<input type="email" placeholder="Enter E-mail" id="email" name="email" onkeyup="check();" required>
+
+					<label for="reemail"><b>Repeat E-mail Address </b></label><span id='message'></span>
+					<input type="email" placeholder="Repeat E-mail" id="reemail" name="reemail"  onkeyup="check();" required>
+					
+
+					<label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" id="psw" name="psw" minlength="8" onkeyup="check2();"
+					title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+					<div id="message3">
+  						<h3>Password must contain the following:</h3>
+ 						<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  						<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  						<p id="number" class="invalid">A <b>number</b></p>
+  						<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+					</div>
+
+					<label for="repsw"><b>Repeat Password </b></label><span id='message2'></span>
+					<input type="password" placeholder="Repeat Password" id="repsw" name="repsw" minlength="8" onkeyup="check2();" required>
+					
+
+					<a href="home.html"><button class="registerbtn" type="submit">Register</button></a>
+					<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+				</div>
+				<div class="remember">
+					<a href="login.html"><button type="button" class="ihaveit">Already have an account? Sign in</button></a>
+					
+				</div>
+			</form>
+		</div>	
+	</div>
+	<script>
+	var check = function() {
+      if (document.getElementById('email').value ==
+          document.getElementById('reemail').value) {
+          document.getElementById('message').style.color = 'green';
+          document.getElementById('message').innerHTML = 'matching';
+      } else {
+      		document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'not matching';
+      }
+  }
+	 var check2 = function() {
+      if (document.getElementById('psw').value ==
+          document.getElementById('repsw').value) {
+          document.getElementById('message2').style.color = 'green';
+          document.getElementById('message2').innerHTML = 'matching';
+      } else {
+      		document.getElementById('message2').style.color = 'red';
+          document.getElementById('message2').innerHTML = 'not matching';
+      }
+  }
+  var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message3").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message3").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+	</script>
+</body>
+</html>

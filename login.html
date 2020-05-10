@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="eng" xml:lang="eng" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<title>Login</title>
+</head>
+<body>
+	<div class="base">
+		<div class="login_container">
+			<h1>Login</h1>
+			<form action="/action_page.php" method="post">
+				<div class="imgcontainer">
+					<img src="resources/games_104002.ico" alt="avatar" class="avatar">
+				</div>
+				<div class="loginfrm">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+
+					<label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" required>
+
+					<button type="submit">Login</button>
+					<label>
+						<input type="checkbox" checked="checked" name="remember">
+						Remember me
+					</label>
+				</div>
+				<div class="forgot">
+					<button type="reset" class="resetbtn">Reset</button>
+					<span class="psw"><a href="#">Forgot password?</a></span>
+					<a href="register.html"><button type="button" class="signup">Sign up</button></a>
+					
+				</div>
+			</form>
+		</div>	
+	</div>
+</body>
+</html>
